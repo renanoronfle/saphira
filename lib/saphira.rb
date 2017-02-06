@@ -12,11 +12,15 @@ module Saphira
 
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
+      begin
       text = controller.send(act)
-
       `echo debug > debug.txt`;
       [200, {'Content-Type' => 'text/html'},
         [text]]
+      rescue
+      [500, {'Content-Type' => 'text/html'},
+        ["Ops!!!"]]
+      end
     end
   end
 
