@@ -1,6 +1,8 @@
 require "saphira/version"
 require "saphira/array"
 require "saphira/routing"
+require "saphira/util"
+require "saphira/dependencies"
 
 module Saphira
   class Application
